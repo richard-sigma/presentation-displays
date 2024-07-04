@@ -1,8 +1,8 @@
 Display displayFromJson(Map<String, dynamic> json) => Display(
-    displayId: json['displayId'],
-    flag: json['flags'],
-    name: json['name'],
-    rotation: json['rotation']);
+    displayId: json['displayId'] ?? json['a'],
+    flag: json['flags'] ?? json['b'],
+    name: json['name'] ?? json['d'],
+    rotation: json['rotation'] ?? json['c']);
 
 /// for release please check response from invokeMethod
 Display displayReleaseFromJson(Map<String, dynamic> json) => Display(
