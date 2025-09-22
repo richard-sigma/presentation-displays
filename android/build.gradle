@@ -53,9 +53,4 @@ dependencies {
     implementation 'com.android.support:support-annotations:28.0.0'
 }
 
-// Ensure all Kotlin tasks use 1.8
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-}
+
