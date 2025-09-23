@@ -45,6 +45,10 @@ android {
         jvmTarget = '17'
     }
 
+    kotlin {
+        jvmToolchain(17)
+    }
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
         main {
@@ -76,4 +80,12 @@ flutter {
 }
 
 dependencies {
+}
+
+tasks.register("checkJvmTarget") {
+    doLast {
+        println "Java targetCompatibility: ${android.compileOptions.targetCompatibility}"
+        println "Java sourceCompatibility: ${android.compileOptions.sourceCompatibility}"
+        println "Kotlin jvmTarget: ${android.kotlinOptions.jvmTarget}"
+    }
 }
