@@ -1,49 +1,53 @@
-group 'com.namit.presentation_displays'
-version '1.0-SNAPSHOT'
-
 buildscript {
     ext.kotlin_version = '1.7.20'
     repositories {
         google()
         mavenCentral()
     }
-
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
-rootProject.allprojects {
-    repositories {
-        google()
-        mavenCentral()
+        classpath "com.android.tools.build:gradle:7.4.2"
     }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+group 'com.namit.presentation_displays'
+version '1.0-SNAPSHOT'
+
+
 android {
-    compileSdkVersion 34
+    namespace "com.namit.presentation_displays" // Replace with your actual package if needed
+    compileSdk = 34
+
+    defaultConfig {
+        minSdk = 21
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-    defaultConfig {
-        minSdkVersion 21
-    }
-    lintOptions {
-        disable 'InvalidPackage'
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
-    // Force Java 1.8 for both Java + Kotlin
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    lint {
+        disable "InvalidPackage"
     }
 }
 
