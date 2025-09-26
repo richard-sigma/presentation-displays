@@ -1,64 +1,27 @@
-buildscript {
-    ext.kotlin_version = '1.7.20'
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.android.tools.build:gradle:7.4.2"
-    }
+plugins {
+    id "com.android.application" version "8.4.2"
+    id "org.jetbrains.kotlin.android" version "1.9.24"
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-group 'com.namit.presentation_displays'
-version '1.0-SNAPSHOT'
-
 
 android {
-    namespace "com.namit.presentation_displays" // Replace with your actual package if needed
-    compileSdk = 34
+    namespace "com.namit.presentation_displays"
+    compileSdk 34
 
     defaultConfig {
-        minSdk = 21
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+        minSdk 21
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
         jvmTarget = "17"
     }
-
-    kotlin {
-        jvmToolchain(17)
-    }
-
-    lint {
-        disable "InvalidPackage"
-    }
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.google.code.gson:gson:2.10.1'
-    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
+    implementation "com.google.code.gson:gson:2.10.1"
 }
-
-

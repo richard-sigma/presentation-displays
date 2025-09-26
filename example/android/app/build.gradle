@@ -1,7 +1,7 @@
 plugins {
     id "com.android.application"
+    id "org.jetbrains.kotlin.android" version "1.9.24"
     id "dev.flutter.flutter-gradle-plugin"
-    id "org.jetbrains.kotlin.android" version "1.8.10"
 }
 
 
@@ -34,7 +34,8 @@ android {
     namespace "com.namit.presentation_displays_example"
 //    compileSdkVersion flutter.compileSdkVersion
     compileSdkVersion 34
-    ndkVersion flutter.ndkVersion
+    ndkVersion "28.1.13356709"
+//    ndkVersion flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
